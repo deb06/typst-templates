@@ -1,0 +1,2 @@
+# cornell-notes-template
+ 
