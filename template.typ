@@ -48,11 +48,11 @@
       },
       [
       #set align(center)
-      == Main Ideas
+      === Main Ideas
       ],
       [
       #set align(center)
-      == Notes
+      === Notes
       ],
       [
       #main_ideas
