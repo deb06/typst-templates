@@ -45,6 +45,8 @@
         col_header
       } else if row == 1 and col == 0 {
         col_bg
+      } else if row == 1 and col == 1 {
+        luma(240)
       },
       [
       #set align(center)
@@ -65,10 +67,10 @@
 
     #table(
       stroke: 0pt,
-      columns: (531.28pt),
+      columns: (1fr),
       rows: (20pt, 140pt),
       fill: (_, row) =>
-      if row == 0 { col_title }
+      if row == 0 { col_header }
       else if row == 1 { col_bg },
       align(
         center,
