@@ -14,16 +14,21 @@
   set text(font: "Times New Roman", size: 12pt)
 
   page(
+    numbering: "1",
     margin: (x: 32pt, y: 70pt),
-    header: align(
-      left,
-    )[
-      #set text(
-        size: 24pt,
-        fill: col_title,
-      )
-      = #title
-      ],
+    header: locate(
+      loc => if [#loc.page()] == [1] {
+        [
+        #align(left,)[
+          #set text(
+            size: 24pt,
+            fill: col_title,
+          )
+          = #title
+        ]
+        ]
+      } else {[]}
+    )
   )[
     #set align(left)
     #set text( size: 12pt)
@@ -38,8 +43,8 @@
     )
 
     #table(
-      stroke: 0pt,
-      columns: (1fr, 4fr),
+      stroke: 0.5pt, //There is still a rendering issue here with a larger stroke or with 0 stroke. Could be just a typst issue not really sure.
+      columns: (1fr, 3fr),
       fill: (col, row) =>
       if row == 0 {
         col_header
@@ -66,9 +71,9 @@
     )
 
     #table(
-      stroke: 0pt,
+      stroke: 0.5pt,
       columns: (1fr),
-      rows: (20pt, 140pt),
+      //rows: (20pt, 140pt), //If you create a section longer than the box, it breaks
       fill: (_, row) =>
       if row == 0 { col_header }
       else if row == 1 { col_bg },
@@ -78,7 +83,10 @@
         #set text(size: 14pt)
         === Summary
         ],
-      [ #summary ],
+      [
+      #summary
+      //#v(140pt) //this just extends the box.
+      ],
     )
     ]
 }
