@@ -24,6 +24,7 @@
             size: 24pt,
             fill: col_title,
           )
+          //Alternatively just have the header every page by removing the locate function
           = #title
         ]
         ]
@@ -66,14 +67,12 @@
       ],
       [
       #notes
-      #v(420pt) // FIXME: this feels jank
       ],
     )
 
     #table(
       stroke: 0.5pt,
       columns: (1fr),
-      //rows: (20pt, 140pt), //If you create a section longer than the box, it breaks
       fill: (_, row) =>
       if row == 0 { col_header }
       else if row == 1 { col_bg },
@@ -85,7 +84,6 @@
         ],
       [
       #summary
-      //#v(140pt) //this just extends the box.
       ],
     )
     ]
